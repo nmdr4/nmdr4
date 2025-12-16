@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>nmdra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
@@ -23,30 +23,16 @@
       padding: 20px;
     }
 
-    .page:target {
+    .page.active {
       display: flex;
-    }
-
-    /* Home por defecto */
-    #home {
-      display: flex;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      margin-bottom: 20px;
     }
 
     a {
       color: #eee;
       text-decoration: none;
       border: 1px solid #333;
-      padding: 10px 20px;
-      margin: 5px;
+      padding: 8px 16px;
+      margin: 6px;
       background: #222;
       display: inline-block;
     }
@@ -58,68 +44,124 @@
     ul {
       list-style: none;
       padding: 0;
-      margin: 0;
     }
 
     li {
-      padding: 4px 0;
-      opacity: 0.9;
+      margin: 6px 0;
     }
 
-    .back {
-      margin-top: 30px;
-      opacity: 0.7;
+    iframe {
+      margin: 10px 0;
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      border: none;
     }
   </style>
 </head>
 <body>
 
   <!-- HOME -->
-  <div id="home" class="page">
+  <div id="home" class="page active">
     <h1>nmdra</h1>
-    <div>
-      <a href="#music">music</a>
-      <a href="#stuff">stuff</a>
-    </div>
+    <a href="#music">music</a>
+    <a href="#stuff">stuff</a>
   </div>
 
   <!-- MUSIC -->
   <div id="music" class="page">
     <h2>music</h2>
-    <ul>
-  <li>Adickta Sinfonia</li>
-  <li>Autistic Boys Money Clan</li>
-  <li>Chief Keef</li>
-  <li>Control Machete</li>
-  <li>Daddy Yankee</li>
-  <li>Eminem</li>
-  <li>Fusion de Mentes</li>
-  <li>Gigi D'Agostino</li>
-  <li>Korn</li>
-  <li>La Corte</li>
-  <li>Ley 20Mil</li>
-  <li>Limp Bizkit</li>
-  <li>MF Doom</li>
-  <li>Nigga (Flex)</li>
-  <li>Plan B</li>
-  <li>Slipknot</li>
-  <li>Soda Stereo</li>
-  <li>Swaggerboyz</li>
-  <li>Virus</li>
-  <li>Waka Flocka Flame</li>
-  <li>Washed Out</li>
-  <li>Worldcorp Enterprises</li>
-  <li>Yntro</li>
-</ul>
-    <a href="#home" class="back">volver</a>
+    <ul id="artist-list"></ul>
+    <a href="#home">volver</a>
+  </div>
+
+  <!-- ARTIST -->
+  <div id="artist" class="page">
+    <h2 id="artist-name"></h2>
+    <div id="songs"></div>
+    <a href="#music">volver</a>
   </div>
 
   <!-- STUFF -->
   <div id="stuff" class="page">
     <h2>stuff</h2>
     <p>próximamente</p>
-    <a href="#home" class="back">volver</a>
+    <a href="#home">volver</a>
   </div>
+
+<script>
+const data = {
+  "Adickta Sinfonia": ["Aunque todo vaya Mal", "Rimaje"],
+  "Autistic Boys Money Clan": ["Flashbang Ice Storm", "240p"],
+  "Chief Keef": ["Text", "Shake Dat", "Everyday", "Laughin to da bank", "I dont like", "Love Sosa", "Kills", "Fuck Niggaz"],
+  "Control Machete": ["Comprendes Mendes", "Si Señor", "Humanos Mexicanos", "Asi son mis dias", "Cumbia sobre el rio", "Andamos armados", "Control Machete", "Cheve"],
+  "Daddy Yankee": ["Gasolina", "Con Calma", "Pose", "Somos de calle", "Rompe", "Dura"],
+  "Eminem": ["Without Me", "The Real Slim Shady", "Godzilla", "Rap God", "Under the Influence"],
+  "Fusion de Mentes": ["Espantense del miedo", "Pal que le llegue"],
+  "Gigi D'Agostino": ["Bla Bla Bla"],
+  "Korn": ["Freak on a Leash", "Blind"],
+  "La Corte": ["Hierro", "Leche", "Cedula", "Mantequilla"],
+  "Ley 20Mil": ["Silencio", "Porte y consumo", "Un minuto de confianza", "Rest in weed", "Antisocial", "Cada dia"],
+  "Limp Bizkit": ["Rollin", "My Way", "My Generation", "Nookie", "N 2 Gether Now"],
+  "MF Doom": ["Doomsday", "Rhymes Like Dimes", "Rapp Snitch Knishes", "All Caps", "Hoe Cakes", "Benzi Box", "Meat Grinder", "Figaro", "Kon Queso", "Potholderz", "Deep Fried Frenz", "Beef Rapp", "Gazillion Ear", "Kon Karne", "Curls", "Crosshairs", "Fig Leaf Bi-Carbonate"],
+  "Nigga": ["Dejala"],
+  "Plan B": ["Fanatica Sensual", "Si no le contesto", "Es un secreto"],
+  "Slipknot": ["Duality", "Eyeless", "Wait and Bleed", "Vermillion", "Sic"],
+  "Soda Stereo": ["Persiana Americana", "Cuando pase el temblor", "De Musica Ligera", "Tratame Suavemente"],
+  "Swaggerboyz": ["Saco a pasear", "Guiso", "Fernet", "Peter Griffin", "AFIP", "Gofue", "Musica de ascensor", "Pie en la pista", "Yo estoy", "Remera I Love Swag"],
+  "Virus": ["Amor descartable", "Pronta entrega", "Luna de miel en la mano", "Imagenes paganas"],
+  "Waka Flocka Flame": ["Head First", "Keep It Real", "Google Me", "What Would U Do", "9 On My Waist", "Go Hard", "What You Reppin", "All I Know", "Blunt Music"],
+  "Washed Out": ["Belong"],
+  "Worldcorp Enterprises": ["Gamble", "Highstakes", "Crucifix", "Business Day"],
+  "Yntro": ["De seguro es un pintor"]
+};
+
+// render artist list (ABC)
+const artistList = document.getElementById("artist-list");
+Object.keys(data).sort().forEach(name => {
+  const li = document.createElement("li");
+  li.innerHTML = `<a href="#artist/${encodeURIComponent(name)}">${name}</a>`;
+  artistList.appendChild(li);
+});
+
+function showPage(id) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+function loadArtist(name) {
+  const decoded = decodeURIComponent(name);
+  document.getElementById("artist-name").textContent = decoded;
+  const container = document.getElementById("songs");
+  container.innerHTML = "";
+
+  data[decoded].forEach(song => {
+    const q = encodeURIComponent(`${decoded} ${song}`);
+    container.innerHTML += `
+      <iframe src="https://www.youtube.com/embed?listType=search&list=${q}"></iframe>
+    `;
+  });
+
+  showPage("artist");
+}
+
+function router() {
+  const hash = location.hash.replace("#", "");
+
+  if (hash.startsWith("artist/")) {
+    loadArtist(hash.split("artist/")[1]);
+  } else if (hash === "music") {
+    showPage("music");
+  } else if (hash === "stuff") {
+    showPage("stuff");
+  } else {
+    showPage("home");
+  }
+}
+
+window.addEventListener("hashchange", router);
+router();
+</script>
 
 </body>
 </html>
