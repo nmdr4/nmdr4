@@ -11,14 +11,33 @@
       font-family: Arial, sans-serif;
       background: #111;
       color: #eee;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
       padding: 20px;
     }
 
-    h1 {
-      font-size: 2rem;
+    .page:target {
+      display: flex;
     }
 
-    nav {
+    /* Home por defecto */
+    #home {
+      display: flex;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    h2 {
       margin-bottom: 20px;
     }
 
@@ -26,27 +45,20 @@
       color: #eee;
       text-decoration: none;
       border: 1px solid #333;
-      padding: 8px 14px;
-      margin-right: 10px;
+      padding: 10px 20px;
+      margin: 5px;
       background: #222;
+      display: inline-block;
     }
 
     a:hover {
       background: #333;
     }
 
-    section {
-      display: none;
-      margin-top: 20px;
-    }
-
-    section:target {
-      display: block;
-    }
-
     ul {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
 
     li {
@@ -54,26 +66,25 @@
       opacity: 0.9;
     }
 
-    .home {
-      display: block;
-    }
-
-    section:target ~ .home {
-      display: none;
+    .back {
+      margin-top: 30px;
+      opacity: 0.7;
     }
   </style>
 </head>
 <body>
 
-  <h1>nmdra</h1>
-
-  <nav>
-    <a href="#music">music</a>
-    <a href="#stuff">stuff</a>
-  </nav>
+  <!-- HOME -->
+  <div id="home" class="page">
+    <h1>nmdra</h1>
+    <div>
+      <a href="#music">music</a>
+      <a href="#stuff">stuff</a>
+    </div>
+  </div>
 
   <!-- MUSIC -->
-  <section id="music">
+  <div id="music" class="page">
     <h2>music</h2>
     <ul>
       <li>Worldcorp Enterprises</li>
@@ -100,17 +111,14 @@
       <li>Gigi D'Agostino</li>
       <li>Swaggerboyz (agustinfortnite2008, stiffy, etc)</li>
     </ul>
-  </section>
+    <a href="#home" class="back">volver</a>
+  </div>
 
   <!-- STUFF -->
-  <section id="stuff">
+  <div id="stuff" class="page">
     <h2>stuff</h2>
     <p>próximamente</p>
-  </section>
-
-  <!-- HOME -->
-  <div class="home">
-    <p>elige una sección</p>
+    <a href="#home" class="back">volver</a>
   </div>
 
 </body>
