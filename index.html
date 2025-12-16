@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>nmdra</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <style>
     body {
       margin: 0;
@@ -12,7 +11,6 @@
       background: #111;
       color: #eee;
     }
-
     .page {
       min-height: 100vh;
       display: none;
@@ -22,11 +20,9 @@
       flex-direction: column;
       padding: 20px;
     }
-
     .page.active {
       display: flex;
     }
-
     a {
       color: #eee;
       text-decoration: none;
@@ -37,21 +33,17 @@
       display: inline-block;
       cursor: pointer;
     }
-
     a:hover {
       background: #333;
     }
-
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
-
     li {
       margin: 6px 0;
     }
-
     iframe {
       margin-top: 20px;
       width: 100%;
@@ -63,28 +55,24 @@
 </head>
 <body>
 
-<!-- HOME -->
 <div id="home" class="page active">
   <h1>nmdra</h1>
   <a href="#music">music</a>
   <a href="#stuff">stuff</a>
 </div>
 
-<!-- MUSIC -->
 <div id="music" class="page">
   <h2>music</h2>
   <ul id="artist-list"></ul>
   <a href="#home">volver</a>
 </div>
 
-<!-- ARTIST -->
 <div id="artist" class="page">
   <h2 id="artist-name"></h2>
   <div id="songs"></div>
   <a href="#music">volver</a>
 </div>
 
-<!-- STUFF -->
 <div id="stuff" class="page">
   <h2>stuff</h2>
   <p>próximamente</p>
@@ -99,10 +87,7 @@ const data = {
   ],
   "Autistic Boys Money Clan": [
     { title: "Flashbang / Ice / Storm" },
-    {
-      title: "240p",
-      embed: "pzT7zLKFC9g"
-    }
+    { title: "240p", embed: "pzT7zLKFC9g" }
   ],
   "Chief Keef": [
     { title: "Text" },
@@ -113,10 +98,127 @@ const data = {
     { title: "Love Sosa" },
     { title: "Kills" },
     { title: "Fuck niggaz" }
+  ],
+  "Control Machete": [
+    { title: "Comprendes Mendes" },
+    { title: "Si señor" },
+    { title: "Humanos mexicanos" },
+    { title: "Asi son mis dias" },
+    { title: "Cumbia sobre el rio" },
+    { title: "Andamos armados" },
+    { title: "Control machete" },
+    { title: "Cheve" }
+  ],
+  "Daddy Yankee": [
+    { title: "Gasolina" },
+    { title: "Con calma" },
+    { title: "Pose" },
+    { title: "Somos de calle" },
+    { title: "Rompe" },
+    { title: "Dura" }
+  ],
+  "Eminem": [
+    { title: "Without me" },
+    { title: "The real slim shady" },
+    { title: "Godzilla" },
+    { title: "Rap god" },
+    { title: "Under the influence" }
+  ],
+  "Fusion de Mentes": [
+    { title: "Espantense del miedo" },
+    { title: "Pal que le llegue" }
+  ],
+  "Gigi D'Agostino": [
+    { title: "Bla Bla Bla" }
+  ],
+  "Korn": [
+    { title: "Freak on a leash" },
+    { title: "Blind" }
+  ],
+  "La Corte": [
+    { title: "Hierro" },
+    { title: "Leche" },
+    { title: "Cedula" },
+    { title: "Mantequilla" }
+  ],
+  "Ley 20Mil": [
+    { title: "Silencio" },
+    { title: "Porte y consumo" },
+    { title: "Un minuto de confianza" },
+    { title: "Rest in weed" },
+    { title: "Antisocial" },
+    { title: "Cada dia" }
+  ],
+  "Limp Bizkit": [
+    { title: "Rollin" },
+    { title: "My way" },
+    { title: "My generation" },
+    { title: "Nookie" },
+    { title: "N 2 gether now" }
+  ],
+  "MF Doom": [
+    { title: "Doomsday", embed: "gndkFhYh5Mo" }
+  ],
+  "Nigga": [
+    { title: "Dejala" }
+  ],
+  "Plan B": [
+    { title: "Fanatica sensual" },
+    { title: "Si no le contesto" },
+    { title: "Es un secreto" }
+  ],
+  "Slipknot": [
+    { title: "Psychosocial", embed: "5abamRO41fE" }
+  ],
+  "Soda Stereo": [
+    { title: "Persiana americana" },
+    { title: "Cuando pase el temblor" },
+    { title: "De musica ligera" },
+    { title: "Tratame suavemente" }
+  ],
+  "Swaggerboyz": [
+    { title: "Saco a pasear" },
+    { title: "Guiso" },
+    { title: "Fernet" },
+    { title: "Peter Griffin" },
+    { title: "AFIP" },
+    { title: "Gofue" },
+    { title: "Musica de ascensor" },
+    { title: "Pie en la pista" },
+    { title: "Yo estoy" },
+    { title: "Remera I Love Swag" }
+  ],
+  "Virus": [
+    { title: "Amor descartable" },
+    { title: "Pronta entrega" },
+    { title: "Luna de miel en la mano" },
+    { title: "Imagenes paganas" }
+  ],
+  "Waka Flocka Flame": [
+    { title: "Head first" },
+    { title: "Keep it real" },
+    { title: "Google me" },
+    { title: "What would u do" },
+    { title: "9 on my waist" },
+    { title: "Go hard" },
+    { title: "What you reppin" },
+    { title: "All i know" },
+    { title: "Blunt music" }
+  ],
+  "Washed Out": [
+    { title: "Belong" }
+  ],
+  "Worldcorp Enterprises": [
+    { title: "Gamble" },
+    { title: "Highstakes" },
+    { title: "Crucifix" },
+    { title: "Business day" }
+  ],
+  "Yntro": [
+    { title: "De seguro es un pintor" }
   ]
 };
 
-// render artistas en ABC
 const artistList = document.getElementById("artist-list");
 Object.keys(data).sort().forEach(name => {
   const li = document.createElement("li");
@@ -141,11 +243,9 @@ function loadArtist(name) {
       btn.textContent = "▶ " + song.title;
       btn.onclick = () => {
         container.innerHTML = `
-          <iframe
-            src="https://www.youtube.com/embed/${song.embed}"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+          <iframe src="https://www.youtube.com/embed/${song.embed}"
+            allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen></iframe>
         `;
       };
       container.appendChild(btn);
