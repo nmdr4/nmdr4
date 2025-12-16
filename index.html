@@ -135,12 +135,15 @@ function loadArtist(name) {
   const container = document.getElementById("songs");
   container.innerHTML = "";
 
-  data[decoded].forEach(song => {
-    const q = encodeURIComponent(`${decoded} ${song}`);
-    container.innerHTML += `
-      <iframe src="https://www.youtube.com/embed?listType=search&list=${q}"></iframe>
-    `;
-  });
+data[decoded].forEach(song => {
+  const q = encodeURIComponent(`${decoded} ${song}`);
+  container.innerHTML += `
+    <a href="https://www.youtube.com/results?search_query=${q}" target="_blank">
+      ▶ ${song}
+    </a>
+  `;
+});
+
 
   showPage("artist");
 }
