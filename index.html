@@ -35,6 +35,7 @@
       margin: 6px;
       background: #222;
       display: inline-block;
+      cursor: pointer;
     }
 
     a:hover {
@@ -49,6 +50,14 @@
 
     li {
       margin: 6px 0;
+    }
+
+    iframe {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      border: none;
     }
   </style>
 </head>
@@ -92,7 +101,7 @@ const data = {
     { title: "Flashbang / Ice / Storm" },
     {
       title: "240p",
-      url: "https://www.youtube.com/watch?v=pzT7zLKFC9g&list=RDpzT7zLKFC9g&start_radio=1"
+      embed: "pzT7zLKFC9g"
     }
   ],
   "Chief Keef": [
@@ -104,148 +113,10 @@ const data = {
     { title: "Love Sosa" },
     { title: "Kills" },
     { title: "Fuck niggaz" }
-  ],
-  "Control Machete": [
-    { title: "Comprendes Mendes" },
-    { title: "Si Señor" },
-    { title: "Humanos Mexicanos" },
-    { title: "Asi son mis dias" },
-    { title: "Cumbia sobre el rio" },
-    { title: "Andamos armados" },
-    { title: "Control Machete" },
-    { title: "Cheve" }
-  ],
-  "Daddy Yankee": [
-    { title: "Gasolina" },
-    { title: "Con Calma" },
-    { title: "Pose" },
-    { title: "Somos de calle" },
-    { title: "Rompe" },
-    { title: "Dura" }
-  ],
-  "Eminem": [
-    { title: "Without Me" },
-    { title: "The Real Slim Shady" },
-    { title: "Godzilla" },
-    { title: "Rap God" },
-    { title: "Under the Influence" }
-  ],
-  "Fusion de Mentes": [
-    { title: "Espantense del miedo" },
-    { title: "Pal que le llegue" }
-  ],
-  "Gigi D'Agostino": [
-    { title: "Bla Bla Bla" }
-  ],
-  "Korn": [
-    { title: "Freak on a Leash" },
-    { title: "Blind" }
-  ],
-  "La Corte": [
-    { title: "Hierro" },
-    { title: "Leche" },
-    { title: "Cedula" },
-    { title: "Mantequilla" }
-  ],
-  "Ley 20Mil": [
-    { title: "Silencio" },
-    { title: "Porte y consumo" },
-    { title: "Un minuto de confianza" },
-    { title: "Rest in weed" },
-    { title: "Antisocial" },
-    { title: "Cada dia" }
-  ],
-  "Limp Bizkit": [
-    { title: "Rollin" },
-    { title: "My Way" },
-    { title: "My Generation" },
-    { title: "Nookie" },
-    { title: "N 2 Gether Now" }
-  ],
-  "MF Doom": [
-    { title: "Doomsday" },
-    { title: "Rhymes Like Dimes" },
-    { title: "Rapp Snitch Knishes" },
-    { title: "All Caps" },
-    { title: "Hoe Cakes" },
-    { title: "Benzi Box" },
-    { title: "Meat Grinder" },
-    { title: "Figaro" },
-    { title: "Kon Queso" },
-    { title: "Potholderz" },
-    { title: "Deep Fried Frenz" },
-    { title: "Beef Rapp" },
-    { title: "Gazillion Ear" },
-    { title: "Kon Karne" },
-    { title: "Curls" },
-    { title: "Crosshairs" },
-    { title: "Fig Leaf Bi-Carbonate" }
-  ],
-  "Nigga": [
-    { title: "Dejala" }
-  ],
-  "Plan B": [
-    { title: "Fanatica Sensual" },
-    { title: "Si no le contesto" },
-    { title: "Es un secreto" }
-  ],
-  "Slipknot": [
-    { title: "Duality" },
-    { title: "Eyeless" },
-    { title: "Wait and Bleed" },
-    { title: "Vermillion" },
-    { title: "Sic" }
-  ],
-  "Soda Stereo": [
-    { title: "Persiana Americana" },
-    { title: "Cuando pase el temblor" },
-    { title: "De musica ligera" },
-    { title: "Tratame suavemente" }
-  ],
-  "Swaggerboyz": [
-    { title: "Saco a pasear" },
-    { title: "Guiso" },
-    { title: "Fernet" },
-    { title: "Peter Griffin" },
-    { title: "AFIP" },
-    { title: "Gofue" },
-    { title: "Musica de ascensor" },
-    { title: "Pie en la pista" },
-    { title: "Yo estoy" },
-    { title: "Remera I Love Swag" }
-  ],
-  "Virus": [
-    { title: "Amor descartable" },
-    { title: "Pronta entrega" },
-    { title: "Luna de miel en la mano" },
-    { title: "Imagenes paganas" }
-  ],
-  "Waka Flocka Flame": [
-    { title: "Head First" },
-    { title: "Keep It Real" },
-    { title: "Google Me" },
-    { title: "What Would U Do" },
-    { title: "9 On My Waist" },
-    { title: "Go Hard" },
-    { title: "What You Reppin" },
-    { title: "All I Know" },
-    { title: "Blunt Music" }
-  ],
-  "Washed Out": [
-    { title: "Belong" }
-  ],
-  "Worldcorp Enterprises": [
-    { title: "Gamble" },
-    { title: "Highstakes" },
-    { title: "Crucifix" },
-    { title: "Business Day" }
-  ],
-  "Yntro": [
-    { title: "De seguro es un pintor" }
   ]
 };
 
-// render artists (ABC)
+// render artistas en ABC
 const artistList = document.getElementById("artist-list");
 Object.keys(data).sort().forEach(name => {
   const li = document.createElement("li");
@@ -265,10 +136,19 @@ function loadArtist(name) {
   container.innerHTML = "";
 
   data[decoded].forEach(song => {
-    if (song.url) {
-      container.innerHTML += `
-        <a href="${song.url}" target="_blank">▶ ${song.title}</a>
-      `;
+    if (song.embed) {
+      const btn = document.createElement("a");
+      btn.textContent = "▶ " + song.title;
+      btn.onclick = () => {
+        container.innerHTML = `
+          <iframe
+            src="https://www.youtube.com/embed/${song.embed}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        `;
+      };
+      container.appendChild(btn);
     } else {
       const q = encodeURIComponent(`${decoded} ${song.title}`);
       container.innerHTML += `
