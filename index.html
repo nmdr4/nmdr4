@@ -75,13 +75,16 @@ input {
 </head>
 <body>
 
+<!-- HOME -->
 <div id="home" class="page active">
   <h1>nmdra</h1>
   <div class="menu">
     <a href="#music">music</a>
+    <a href="#wip">wip</a>
   </div>
 </div>
 
+<!-- LOCK -->
 <div id="lock" class="page">
   <h2>locked</h2>
   <p>password</p>
@@ -90,16 +93,24 @@ input {
   <button onclick="unlock()">enter</button>
 </div>
 
+<!-- MUSIC -->
 <div id="music" class="page">
   <h2>music</h2>
   <div class="menu" id="artist-list"></div>
   <a class="back" href="#home">volver</a>
 </div>
 
+<!-- ARTIST -->
 <div id="artist" class="page">
   <h2 id="artist-name"></h2>
   <div class="songs" id="songs"></div>
   <a class="back" href="#music">volver</a>
+</div>
+
+<!-- WIP -->
+<div id="wip" class="page">
+  <h2>workinprogress :')</h2>
+  <a class="back" href="#home">volver</a>
 </div>
 
 <script>
@@ -174,6 +185,7 @@ function router(){
   if ((h==="music"||h.startsWith("artist/"))&&!isUnlocked()) show("lock");
   else if (h.startsWith("artist/")) loadArtist(h.split("artist/")[1]);
   else if (h==="music") show("music");
+  else if (h==="wip") show("wip");
   else show("home");
 }
 
