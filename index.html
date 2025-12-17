@@ -25,14 +25,12 @@ body {
   text-align: center;
 }
 
-.page.active {
-  display: flex;
-}
+.page.active { display: flex; }
 
 .menu {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
   width: 100%;
   max-width: 420px;
 }
@@ -46,9 +44,7 @@ body {
   cursor: pointer;
 }
 
-.menu a:hover, button:hover {
-  background: #333;
-}
+.menu a:hover, button:hover { background: #333; }
 
 input {
   padding: 10px;
@@ -74,14 +70,11 @@ input {
   border: none;
 }
 
-.back {
-  margin-top: 40px;
-}
+.back { margin-top: 40px; }
 </style>
 </head>
 <body>
 
-<!-- HOME -->
 <div id="home" class="page active">
   <h1>nmdra</h1>
   <div class="menu">
@@ -89,23 +82,20 @@ input {
   </div>
 </div>
 
-<!-- LOCK -->
 <div id="lock" class="page">
   <h2>locked</h2>
   <p>password</p>
-  <input id="password" type="password" />
+  <input id="password" type="password">
   <br><br>
   <button onclick="unlock()">enter</button>
 </div>
 
-<!-- MUSIC -->
 <div id="music" class="page">
   <h2>music</h2>
   <div class="menu" id="artist-list"></div>
   <a class="back" href="#home">volver</a>
 </div>
 
-<!-- ARTIST -->
 <div id="artist" class="page">
   <h2 id="artist-name"></h2>
   <div class="songs" id="songs"></div>
@@ -113,10 +103,9 @@ input {
 </div>
 
 <script>
-/* ================= CONFIG ================= */
+/* ========= PASSWORD ========= */
 const PASSWORD = "$$123nm321$$";
 
-/* ================= SESSION ================= */
 function isUnlocked() {
   return sessionStorage.getItem("nmdra_unlocked") === "true";
 }
@@ -131,75 +120,36 @@ function unlock() {
   }
 }
 
-/* ================= DATA ================= */
+/* ========= DATA ========= */
 const data = {
-  "Adickta Sinfonia": [
-    ["Aunque todo vaya Mal","-zhy2Vof-PI"],
-    ["Rimaje","SeUiU_bq2lo"]
-  ],
-  "Autistic Boys Money Clan": [
-    ["Flashbang Ice Storm","qG9KqiuWoD0"],
-    ["240p","pzT7zLKFC9g"]
-  ],
-  "Chief Keef": [
-    ["Text","qc59nYZDbXs"],
-    ["Shake Dat","Z3wcxruENx4"],
-    ["Everyday","tD3xowIXjAA"],
-    ["Laughin to da bank","fqYjCXCqMbs"],
-    ["I dont like","2WcRXJ4piHg"],
-    ["Love Sosa","YWyHZNBz6FE"],
-    ["Kills","1rr0TtBVPGA"],
-    ["Fuck Niggaz","C96MS-ipdDg"]
-  ],
-  "Control Machete": [
-    ["Comprendes Mendes","xLrW4IcPiWw"],
-    ["Si Señor","K_WIGqKS5dA"],
-    ["Humanos Mexicanos","NSWLLtOEgNk"],
-    ["Asi son mis dias","rsKFr0f3Jbo"],
-    ["Cumbia sobre el rio","Wgc6CQNI2x8"],
-    ["Andamos armados","gJ_NFDCHps4"],
-    ["Cheve","2Nzs5McLQLo"]
-  ],
-  "Daddy Yankee": [
-    ["Gasolina","CCF1_jI8Prk"],
-    ["Con Calma","DiItGE3eAyQ"],
-    ["Pose","dn28nlMOYfg"],
-    ["Somos de calle","HMRyk9TrlU4"],
-    ["Rompe","1QzlcmHjTCo"],
-    ["Dura","sGIm0-dQd8M"]
-  ],
-  "Eminem": [
-    ["Without Me","YVkUvmDQ3HY"],
-    ["The Real Slim Shady","eJO5HU_7_1w"],
-    ["Godzilla","r_0JjYUe5jo"],
-    ["Rap God","XbGs_qK2PQA"],
-    ["Under the Influence","j8zRlLHheb0"]
-  ],
-  "MF Doom": [
-    ["Doomsday","LMeluRz2wv4"],
-    ["Rhymes Like Dimes","m2iTcUxLlkE"],
-    ["Rapp Snitch Knishes","dERcdvcXuE0"],
-    ["All Caps","gSJeHDlhYls"],
-    ["Hoe Cakes","Mv6kY_-zt-4"]
-  ],
-  "Slipknot": [
-    ["Duality","6fVE8kSM43I"],
-    ["Eyeless","WLubS6QOMsQ"],
-    ["Wait and Bleed","B1zCN0YhW1s"],
-    ["Vermillion","xKcbYUwmmlE"],
-    ["Sic","m3I3-KTJbtY"]
-  ],
-  "Soda Stereo": [
-    ["Persiana Americana","LalPz4lIZYk"],
-    ["Cuando pase el temblor","ZNzYr4U7Zs8"],
-    ["De Musica Ligera","T_FkEw27XJ0"],
-    ["Tratame Suavemente","UPVfQKUHTSc"]
-  ]
+  "Adickta Sinfonia":[["Aunque todo vaya Mal","-zhy2Vof-PI"],["Rimaje","SeUiU_bq2lo"]],
+  "Autistic Boys Money Clan":[["Flashbang Ice Storm","qG9KqiuWoD0"],["240p","pzT7zLKFC9g"]],
+  "Chief Keef":[["Text","qc59nYZDbXs"],["Shake Dat","Z3wcxruENx4"],["Everyday","tD3xowIXjAA"],["Laughin to da bank","fqYjCXCqMbs"],["I dont like","2WcRXJ4piHg"],["Love Sosa","YWyHZNBz6FE"],["Kills","1rr0TtBVPGA"],["Fuck Niggaz","C96MS-ipdDg"]],
+  "Control Machete":[["Comprendes Mendes","xLrW4IcPiWw"],["Si Señor","K_WIGqKS5dA"],["Humanos Mexicanos","NSWLLtOEgNk"],["Asi son mis dias","rsKFr0f3Jbo"],["Cumbia sobre el rio","Wgc6CQNI2x8"],["Andamos armados","gJ_NFDCHps4"],["Control Machete","xLrW4IcPiWw"],["Cheve","2Nzs5McLQLo"]],
+  "Daddy Yankee":[["Gasolina","CCF1_jI8Prk"],["Con Calma","DiItGE3eAyQ"],["Pose","dn28nlMOYfg"],["Somos de calle","HMRyk9TrlU4"],["Rompe","1QzlcmHjTCo"],["Dura","sGIm0-dQd8M"]],
+  "Eminem":[["Without Me","YVkUvmDQ3HY"],["The Real Slim Shady","eJO5HU_7_1w"],["Godzilla","r_0JjYUe5jo"],["Rap God","XbGs_qK2PQA"],["Under the Influence","j8zRlLHheb0"]],
+  "Fusion de Mentes":[["Espantense del miedo","kZ_4ZWs3wso"],["Pal que le llegue","-vK9bPuLNOs"]],
+  "Gigi D'Agostino":[["Bla Bla Bla","g6t8g6ka4W0"]],
+  "Korn":[["Freak on a Leash","jRGrNDV2mKc"],["Blind","SGK00Q7xx-s"]],
+  "La Corte":[["Hierro","RJ-CGQhRM2s"],["Leche","OreFp-XYWtA"],["Cedula","FGSWuHv28Z4"],["Mantequilla","7Z8KYpz-yFI"]],
+  "Ley 20Mil":[["Silencio","eKH31AVyPdM"],["Porte y consumo","rjuSTYWLWGs"],["Un minuto de confianza","w3rKj0dK34k"],["Rest in weed","3nP-LQ8m_Gg"],["Antisocial","wO2vQIjH8bY"],["Cada dia","v_lhzWCrWNA"]],
+  "Limp Bizkit":[["Rollin","RYnFIRc0k6E"],["My Way","Dn8vzTsnPps"],["My Generation","BE9CXWV1alg"],["Nookie","JTMVOzPPtiw"],["N 2 Gether Now","nA__arRdQ6M"]],
+  "MF Doom":[["Doomsday","LMeluRz2wv4"],["Rhymes Like Dimes","m2iTcUxLlkE"],["Rapp Snitch Knishes","dERcdvcXuE0"],["All Caps","gSJeHDlhYls"],["Hoe Cakes","Mv6kY_-zt-4"],["Benzi Box","e4z-gGlpzwE"],["Meat Grinder","FoasIcgem0w"],["Figaro","I4P5RR4jPGg"],["Kon Queso","9gefM2YA654"],["Potholderz","O2vkAvYboZk"],["Deep Fried Frenz","BjoULuCVQiw"],["Beef Rapp","XvKDFX00tsU"],["Gazillion Ear","bHwpmAuIxAU"],["Kon Karne","U7pvasP4sOI"],["Curls","tv2q9vQ7GOI"],["Crosshairs","8Wgf1PGl2S4"],["Fig Leaf Bi-Carbonate","PB8r0CiP0Ck"]],
+  "Nigga":[["Dejala","CLk1RryVbRM"]],
+  "Plan B":[["Fanatica Sensual","QvypZSdjO8M"],["Si no le contesto","adyZO3E63Gg"],["Es un secreto","fsUP-KYPI98"]],
+  "Slipknot":[["Duality","6fVE8kSM43I"],["Eyeless","WLubS6QOMsQ"],["Wait and Bleed","B1zCN0YhW1s"],["Vermillion","xKcbYUwmmlE"],["Sic","m3I3-KTJbtY"]],
+  "Soda Stereo":[["Persiana Americana","LalPz4lIZYk"],["Cuando pase el temblor","ZNzYr4U7Zs8"],["De Musica Ligera","T_FkEw27XJ0"],["Tratame Suavemente","UPVfQKUHTSc"]],
+  "Swaggerboyz":[["Saco a pasear","CS-FRClk55Q"],["Guiso","ixIeRe-6CY4"],["Fernet","89__AWz7TVs"],["Peter Griffin","X5Nl1XmKpdc"],["AFIP","BohtmY1qrNk"],["Gofue","p-earCV4MbA"],["Musica de ascensor","p-earCV4MbA"],["Pie en la pista","UALQxIy0odc"],["Yo estoy","0qNLcRy5xAI"],["Remera I Love Swag","gR30AZCrmC4"]],
+  "Virus":[["Amor descartable","P3cKrz1xHAY"],["Pronta entrega","hrnoayz4phI"],["Luna de miel en la mano","mQNqA3WHaZE"],["Imagenes paganas","mCEbVR7VZxc"]],
+  "Waka Flocka Flame":[["Head First","2O_lvXoT_lw"],["Keep It Real","N3pW_PNA2pc"],["Google Me","7aAf_AkJlDI"],["What Would U Do","QeqY4IsyKlU"],["9 On My Waist","up6x0F2fRQA"],["Go Hard","wPndvwoydwI"],["What You Reppin","iQ15F8srOho"],["All I Know","6DwdvQ6-oxs"],["Blunt Music","af9HPjL59bY"]],
+  "Washed Out":[["Belong","PFl9_XAwaEE"]],
+  "Worldcorp Enterprises":[["Gamble","V1c-kvgVBWE"],["Highstakes","W18JhwXeutc"],["Crucifix","yQr3eHD0_fw"],["Business Day","z_nfWaNi32Q"]],
+  "Yntro":[["De seguro es un pintor","mq_kgPR88Ag"]]
 };
 
-/* ================= UI ================= */
+/* ========= UI ========= */
 const artistList = document.getElementById("artist-list");
-Object.keys(data).sort().forEach(a => {
+Object.keys(data).sort().forEach(a=>{
   artistList.innerHTML += `<a href="#artist/${encodeURIComponent(a)}">${a}</a>`;
 });
 
@@ -214,33 +164,20 @@ function loadArtist(name){
   const s = document.getElementById("songs");
   s.innerHTML = "";
   data[a].forEach(([t,i])=>{
-    s.innerHTML += `
-      <div class="song">
-        <h3>${t}</h3>
-        <iframe src="https://www.youtube.com/embed/${i}" allowfullscreen></iframe>
-      </div>`;
+    s.innerHTML += `<div class="song"><h3>${t}</h3><iframe src="https://www.youtube.com/embed/${i}" allowfullscreen></iframe></div>`;
   });
   show("artist");
 }
 
-/* ================= ROUTER ================= */
 function router(){
   const h = location.hash.replace("#","");
-  if ((h === "music" || h.startsWith("artist/")) && !isUnlocked()) {
-    show("lock");
-  }
-  else if (h.startsWith("artist/")) {
-    loadArtist(h.split("artist/")[1]);
-  }
-  else if (h === "music") {
-    show("music");
-  }
-  else {
-    show("home");
-  }
+  if ((h==="music"||h.startsWith("artist/"))&&!isUnlocked()) show("lock");
+  else if (h.startsWith("artist/")) loadArtist(h.split("artist/")[1]);
+  else if (h==="music") show("music");
+  else show("home");
 }
 
-window.addEventListener("hashchange", router);
+window.addEventListener("hashchange",router);
 router();
 </script>
 
