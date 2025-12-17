@@ -5,61 +5,100 @@
 <title>nmdra</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #111;
   color: #eee;
 }
+
 .page {
   min-height: 100vh;
   display: none;
   justify-content: center;
   align-items: center;
-  text-align: center;
   flex-direction: column;
-  padding: 20px;
+  padding: 40px 20px;
 }
-.page.active { display: flex; }
-a {
+
+.page.active {
+  display: flex;
+}
+
+h1, h2, h3 {
+  margin: 10px 0;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.menu a {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  border: 1px solid #333;
+  background: #222;
   color: #eee;
   text-decoration: none;
-  border: 1px solid #333;
-  padding: 8px 16px;
-  margin: 6px;
-  background: #222;
 }
-a:hover { background: #333; }
-ul { list-style: none; padding: 0; margin: 0; }
-li { margin: 6px 0; }
+
+.menu a:hover {
+  background: #333;
+}
+
+.songs {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: 700px;
+  margin-top: 30px;
+}
+
 .song {
-  margin: 20px 0;
+  width: 100%;
 }
+
 iframe {
   width: 100%;
-  max-width: 560px;
   height: 315px;
   border: none;
+}
+
+.back {
+  margin-top: 40px;
 }
 </style>
 </head>
 <body>
 
+<!-- HOME -->
 <div id="home" class="page active">
   <h1>nmdra</h1>
-  <a href="#music">music</a>
+  <div class="menu">
+    <a href="#music">music</a>
+  </div>
 </div>
 
+<!-- MUSIC -->
 <div id="music" class="page">
   <h2>music</h2>
-  <ul id="artist-list"></ul>
-  <a href="#home">volver</a>
+  <div class="menu" id="artist-list"></div>
+  <a class="back" href="#home">volver</a>
 </div>
 
+<!-- ARTIST -->
 <div id="artist" class="page">
   <h2 id="artist-name"></h2>
-  <div id="songs"></div>
-  <a href="#music">volver</a>
+  <div class="songs" id="songs"></div>
+  <a class="back" href="#music">volver</a>
 </div>
 
 <script>
@@ -89,7 +128,6 @@ const data = {
     ["Asi son mis dias","rsKFr0f3Jbo"],
     ["Cumbia sobre el rio","Wgc6CQNI2x8"],
     ["Andamos armados","gJ_NFDCHps4"],
-    ["Control Machete","xLrW4IcPiWw"],
     ["Cheve","2Nzs5McLQLo"]
   ],
   "Daddy Yankee": [
@@ -107,12 +145,52 @@ const data = {
     ["Rap God","XbGs_qK2PQA"],
     ["Under the Influence","j8zRlLHheb0"]
   ],
+  "Fusion de Mentes": [
+    ["Espantense del miedo","kZ_4ZWs3wso"],
+    ["Pal que le llegue","-vK9bPuLNOs"]
+  ],
+  "Gigi D'Agostino": [
+    ["Bla Bla Bla","g6t8g6ka4W0"]
+  ],
+  "Korn": [
+    ["Freak on a Leash","jRGrNDV2mKc"],
+    ["Blind","SGK00Q7xx-s"]
+  ],
+  "La Corte": [
+    ["Hierro","RJ-CGQhRM2s"],
+    ["Leche","OreFp-XYWtA"],
+    ["Cedula","FGSWuHv28Z4"],
+    ["Mantequilla","7Z8KYpz-yFI"]
+  ],
+  "Ley 20Mil": [
+    ["Silencio","eKH31AVyPdM"],
+    ["Porte y consumo","rjuSTYWLWGs"],
+    ["Un minuto de confianza","w3rKj0dK34k"],
+    ["Rest in weed","3nP-LQ8m_Gg"],
+    ["Antisocial","wO2vQIjH8bY"],
+    ["Cada dia","v_lhzWCrWNA"]
+  ],
+  "Limp Bizkit": [
+    ["Rollin","RYnFIRc0k6E"],
+    ["My Way","Dn8vzTsnPps"],
+    ["My Generation","BE9CXWV1alg"],
+    ["Nookie","JTMVOzPPtiw"],
+    ["N 2 Gether Now","nA__arRdQ6M"]
+  ],
   "MF Doom": [
     ["Doomsday","LMeluRz2wv4"],
     ["Rhymes Like Dimes","m2iTcUxLlkE"],
     ["Rapp Snitch Knishes","dERcdvcXuE0"],
     ["All Caps","gSJeHDlhYls"],
     ["Hoe Cakes","Mv6kY_-zt-4"]
+  ],
+  "Nigga": [
+    ["Dejala","CLk1RryVbRM"]
+  ],
+  "Plan B": [
+    ["Fanatica Sensual","QvypZSdjO8M"],
+    ["Si no le contesto","adyZO3E63Gg"],
+    ["Es un secreto","fsUP-KYPI98"]
   ],
   "Slipknot": [
     ["Duality","6fVE8kSM43I"],
@@ -126,42 +204,82 @@ const data = {
     ["Cuando pase el temblor","ZNzYr4U7Zs8"],
     ["De Musica Ligera","T_FkEw27XJ0"],
     ["Tratame Suavemente","UPVfQKUHTSc"]
+  ],
+  "Swaggerboyz": [
+    ["Saco a pasear","CS-FRClk55Q"],
+    ["Guiso","ixIeRe-6CY4"],
+    ["Fernet","89__AWz7TVs"],
+    ["Peter Griffin","X5Nl1XmKpdc"],
+    ["AFIP","BohtmY1qrNk"],
+    ["Gofue","p-earCV4MbA"],
+    ["Musica de ascensor","p-earCV4MbA"],
+    ["Pie en la pista","UALQxIy0odc"],
+    ["Yo estoy","0qNLcRy5xAI"],
+    ["Remera I Love Swag","gR30AZCrmC4"]
+  ],
+  "Virus": [
+    ["Amor descartable","P3cKrz1xHAY"],
+    ["Pronta entrega","hrnoayz4phI"],
+    ["Luna de miel en la mano","mQNqA3WHaZE"],
+    ["Imagenes paganas","mCEbVR7VZxc"]
+  ],
+  "Waka Flocka Flame": [
+    ["Head First","2O_lvXoT_lw"],
+    ["Keep It Real","N3pW_PNA2pc"],
+    ["Google Me","7aAf_AkJlDI"],
+    ["What Would U Do","QeqY4IsyKlU"],
+    ["9 On My Waist","up6x0F2fRQA"],
+    ["Go Hard","wPndvwoydwI"],
+    ["What You Reppin","iQ15F8srOho"],
+    ["All I Know","6DwdvQ6-oxs"],
+    ["Blunt Music","af9HPjL59bY"]
+  ],
+  "Washed Out": [
+    ["Belong","PFl9_XAwaEE"]
+  ],
+  "Worldcorp Enterprises": [
+    ["Gamble","V1c-kvgVBWE"],
+    ["Highstakes","W18JhwXeutc"],
+    ["Crucifix","yQr3eHD0_fw"],
+    ["Business Day","z_nfWaNi32Q"]
+  ],
+  "Yntro": [
+    ["De seguro es un pintor","mq_kgPR88Ag"]
   ]
 };
 
 const artistList = document.getElementById("artist-list");
 Object.keys(data).sort().forEach(a=>{
-  const li=document.createElement("li");
-  li.innerHTML=`<a href="#artist/${encodeURIComponent(a)}">${a}</a>`;
-  artistList.appendChild(li);
+  artistList.innerHTML += `<a href="#artist/${encodeURIComponent(a)}">${a}</a>`;
 });
 
-function showPage(id){
+function show(id){
   document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
   document.getElementById(id).classList.add("active");
 }
 
 function loadArtist(name){
-  const decoded=decodeURIComponent(name);
-  document.getElementById("artist-name").textContent=decoded;
-  const s=document.getElementById("songs");
-  s.innerHTML="";
-  data[decoded].forEach(([title,id])=>{
-    s.innerHTML+=`
+  const a = decodeURIComponent(name);
+  document.getElementById("artist-name").textContent = a;
+  const s = document.getElementById("songs");
+  s.innerHTML = "";
+  data[a].forEach(([t,i])=>{
+    s.innerHTML += `
       <div class="song">
-        <h3>${title}</h3>
-        <iframe src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe>
+        <h3>${t}</h3>
+        <iframe src="https://www.youtube.com/embed/${i}" allowfullscreen></iframe>
       </div>`;
   });
-  showPage("artist");
+  show("artist");
 }
 
 function router(){
-  const h=location.hash.replace("#","");
+  const h = location.hash.replace("#","");
   if(h.startsWith("artist/")) loadArtist(h.split("artist/")[1]);
-  else if(h==="music") showPage("music");
-  else showPage("home");
+  else if(h==="music") show("music");
+  else show("home");
 }
+
 window.addEventListener("hashchange",router);
 router();
 </script>
