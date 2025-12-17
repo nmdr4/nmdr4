@@ -28,14 +28,14 @@ a {
   padding: 8px 16px;
   margin: 6px;
   background: #222;
-  display: inline-block;
-  cursor: pointer;
 }
 a:hover { background: #333; }
 ul { list-style: none; padding: 0; margin: 0; }
 li { margin: 6px 0; }
+.song {
+  margin: 20px 0;
+}
 iframe {
-  margin-top: 20px;
   width: 100%;
   max-width: 560px;
   height: 315px;
@@ -65,58 +65,71 @@ iframe {
 <script>
 const data = {
   "Adickta Sinfonia": [
-    {title:"Aunque todo vaya Mal",embed:"-zhy2Vof-PI"},
-    {title:"Rimaje",embed:"SeUiU_bq2lo"}
+    ["Aunque todo vaya Mal","-zhy2Vof-PI"],
+    ["Rimaje","SeUiU_bq2lo"]
   ],
   "Autistic Boys Money Clan": [
-    {title:"Flashbang Ice Storm",embed:"qG9KqiuWoD0"},
-    {title:"240p",embed:"pzT7zLKFC9g"}
+    ["Flashbang Ice Storm","qG9KqiuWoD0"],
+    ["240p","pzT7zLKFC9g"]
   ],
   "Chief Keef": [
-    {title:"Text",embed:"qc59nYZDbXs"},
-    {title:"Shake Dat",embed:"Z3wcxruENx4"},
-    {title:"Everyday",embed:"tD3xowIXjAA"},
-    {title:"Laughin to da bank",embed:"fqYjCXCqMbs"},
-    {title:"I dont like",embed:"2WcRXJ4piHg"},
-    {title:"Love Sosa",embed:"YWyHZNBz6FE"},
-    {title:"Kills",embed:"1rr0TtBVPGA"},
-    {title:"Fuck Niggaz",embed:"C96MS-ipdDg"}
+    ["Text","qc59nYZDbXs"],
+    ["Shake Dat","Z3wcxruENx4"],
+    ["Everyday","tD3xowIXjAA"],
+    ["Laughin to da bank","fqYjCXCqMbs"],
+    ["I dont like","2WcRXJ4piHg"],
+    ["Love Sosa","YWyHZNBz6FE"],
+    ["Kills","1rr0TtBVPGA"],
+    ["Fuck Niggaz","C96MS-ipdDg"]
   ],
   "Control Machete": [
-    {title:"Comprendes Mendes",embed:"xLrW4IcPiWw"},
-    {title:"Si Señor",embed:"K_WIGqKS5dA"},
-    {title:"Humanos Mexicanos",embed:"NSWLLtOEgNk"},
-    {title:"Asi son mis dias",embed:"rsKFr0f3Jbo"},
-    {title:"Cumbia sobre el rio",embed:"Wgc6CQNI2x8"},
-    {title:"Andamos armados",embed:"gJ_NFDCHps4"},
-    {title:"Control Machete",embed:"xLrW4IcPiWw"},
-    {title:"Cheve",embed:"2Nzs5McLQLo"}
+    ["Comprendes Mendes","xLrW4IcPiWw"],
+    ["Si Señor","K_WIGqKS5dA"],
+    ["Humanos Mexicanos","NSWLLtOEgNk"],
+    ["Asi son mis dias","rsKFr0f3Jbo"],
+    ["Cumbia sobre el rio","Wgc6CQNI2x8"],
+    ["Andamos armados","gJ_NFDCHps4"],
+    ["Control Machete","xLrW4IcPiWw"],
+    ["Cheve","2Nzs5McLQLo"]
   ],
   "Daddy Yankee": [
-    {title:"Gasolina",embed:"CCF1_jI8Prk"},
-    {title:"Con Calma",embed:"DiItGE3eAyQ"},
-    {title:"Pose",embed:"dn28nlMOYfg"},
-    {title:"Somos de calle",embed:"HMRyk9TrlU4"},
-    {title:"Rompe",embed:"1QzlcmHjTCo"},
-    {title:"Dura",embed:"sGIm0-dQd8M"}
+    ["Gasolina","CCF1_jI8Prk"],
+    ["Con Calma","DiItGE3eAyQ"],
+    ["Pose","dn28nlMOYfg"],
+    ["Somos de calle","HMRyk9TrlU4"],
+    ["Rompe","1QzlcmHjTCo"],
+    ["Dura","sGIm0-dQd8M"]
   ],
   "Eminem": [
-    {title:"Without Me",embed:"YVkUvmDQ3HY"},
-    {title:"The Real Slim Shady",embed:"eJO5HU_7_1w"},
-    {title:"Godzilla",embed:"r_0JjYUe5jo"},
-    {title:"Rap God",embed:"XbGs_qK2PQA"},
-    {title:"Under the Influence",embed:"j8zRlLHheb0"}
+    ["Without Me","YVkUvmDQ3HY"],
+    ["The Real Slim Shady","eJO5HU_7_1w"],
+    ["Godzilla","r_0JjYUe5jo"],
+    ["Rap God","XbGs_qK2PQA"],
+    ["Under the Influence","j8zRlLHheb0"]
   ],
   "MF Doom": [
-    {title:"Doomsday",embed:"LMeluRz2wv4"},
-    {title:"Rhymes Like Dimes",embed:"m2iTcUxLlkE"},
-    {title:"Rapp Snitch Knishes",embed:"dERcdvcXuE0"},
-    {title:"All Caps",embed:"gSJeHDlhYls"},
-    {title:"Hoe Cakes",embed:"Mv6kY_-zt-4"}
+    ["Doomsday","LMeluRz2wv4"],
+    ["Rhymes Like Dimes","m2iTcUxLlkE"],
+    ["Rapp Snitch Knishes","dERcdvcXuE0"],
+    ["All Caps","gSJeHDlhYls"],
+    ["Hoe Cakes","Mv6kY_-zt-4"]
+  ],
+  "Slipknot": [
+    ["Duality","6fVE8kSM43I"],
+    ["Eyeless","WLubS6QOMsQ"],
+    ["Wait and Bleed","B1zCN0YhW1s"],
+    ["Vermillion","xKcbYUwmmlE"],
+    ["Sic","m3I3-KTJbtY"]
+  ],
+  "Soda Stereo": [
+    ["Persiana Americana","LalPz4lIZYk"],
+    ["Cuando pase el temblor","ZNzYr4U7Zs8"],
+    ["De Musica Ligera","T_FkEw27XJ0"],
+    ["Tratame Suavemente","UPVfQKUHTSc"]
   ]
 };
 
-const artistList=document.getElementById("artist-list");
+const artistList = document.getElementById("artist-list");
 Object.keys(data).sort().forEach(a=>{
   const li=document.createElement("li");
   li.innerHTML=`<a href="#artist/${encodeURIComponent(a)}">${a}</a>`;
@@ -131,13 +144,14 @@ function showPage(id){
 function loadArtist(name){
   const decoded=decodeURIComponent(name);
   document.getElementById("artist-name").textContent=decoded;
-  const c=document.getElementById("songs");
-  c.innerHTML="";
-  data[decoded].forEach(song=>{
-    const b=document.createElement("a");
-    b.textContent="▶ "+song.title;
-    b.onclick=()=>c.innerHTML=`<iframe src="https://www.youtube.com/embed/${song.embed}" allowfullscreen></iframe>`;
-    c.appendChild(b);
+  const s=document.getElementById("songs");
+  s.innerHTML="";
+  data[decoded].forEach(([title,id])=>{
+    s.innerHTML+=`
+      <div class="song">
+        <h3>${title}</h3>
+        <iframe src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe>
+      </div>`;
   });
   showPage("artist");
 }
@@ -148,7 +162,6 @@ function router(){
   else if(h==="music") showPage("music");
   else showPage("home");
 }
-
 window.addEventListener("hashchange",router);
 router();
 </script>
